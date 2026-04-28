@@ -289,7 +289,7 @@ public class DojoMarcial extends JFrame {
 
 		JTextField txtTecnica = new JTextField();
 
-		String[] niveis = { "Mortal" };
+		String[] niveis = { "Nenhum" };
 		JComboBox<String> comboNivel = new JComboBox<>(niveis);
 
 		JButton btnEnviar = new JButton("ENVIAR CANDIDATURA");
@@ -300,7 +300,7 @@ public class DojoMarcial extends JFrame {
 
 		gbc.gridy = 0;
 		gbc.gridx = 0;
-		tela.add(new JLabel("Nome do Cultivador:"), gbc);
+		tela.add(new JLabel("Nome do Candidato:"), gbc);
 		gbc.gridx = 1;
 		tela.add(txtNome, gbc);
 
@@ -312,13 +312,13 @@ public class DojoMarcial extends JFrame {
 
 		gbc.gridy = 2;
 		gbc.gridx = 0;
-		tela.add(new JLabel("Nível de Cultivo:"), gbc);
+		tela.add(new JLabel("Nível de Maestria"), gbc);
 		gbc.gridx = 1;
 		tela.add(comboNivel, gbc);
 
 		gbc.gridy = 4;
 		gbc.gridx = 0;
-		tela.add(new JLabel("Técnica Primordial:"), gbc);
+		tela.add(new JLabel("Arte Principal:"), gbc);
 		gbc.gridx = 1;
 		tela.add(txtTecnica, gbc);
 
