@@ -433,6 +433,7 @@ public class DojoMarcial extends JFrame {
 
 		btnBuscar.addActionListener(e -> filtro(txtNivel.getText(), txtBusca.getText(), comboPosi));
 		btnBuscarID.addActionListener(e -> buscaID(txtID.getText()));
+		txtID.addActionListener(e -> buscaID(txtID.getText()));
 
 		btnLimpar.addActionListener(e -> {
 			txtNivel.setText("");
