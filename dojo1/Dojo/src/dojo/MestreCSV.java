@@ -14,7 +14,7 @@ public class MestreCSV {
 	private static String caminho = "src\\pergaminho_anciao.csv";
 
 	private static int gerarId() {
-		int maiorId = 1999;
+		int maiorId = 1;
 		File arquivo = new File(caminho);
 		if (arquivo.exists()) {
 			try (Scanner scanner = new Scanner(new FileReader(arquivo, StandardCharsets.ISO_8859_1))) {
@@ -22,7 +22,8 @@ public class MestreCSV {
 					String linha = scanner.nextLine();
 					String[] dados = linha.split(";");
 					try {
-						int idAtual = Integer.parseInt(dados[0]);
+						String semPrefixo = dados[0].replaceFirst("^20", "");
+						int idAtual = Integer.parseInt(semPrefixo);
 						if (idAtual > maiorId) {
 							maiorId = idAtual;
 						}
@@ -40,7 +41,7 @@ public class MestreCSV {
 
 	// Função para adicionar a classe Anciao num arquivo CSV
 	public static void adicionaMestre(Mestre a) {
-		int novoId = gerarId();
+		String novoId = "20" + gerarId();
 		a.setId(novoId);
 		try {
 			boolean existe = new File(caminho).exists();

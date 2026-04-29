@@ -13,7 +13,7 @@ public class DiscipuloCSV {
 	private static String caminho = "src\\pergaminho_discipulo.csv";
 
 	private static int gerarId() {
-		int maiorId = 0;
+		int maiorId = 1;
 		File arquivo = new File(caminho);
 		if (arquivo.exists()) {
 			try (Scanner scanner = new Scanner(new FileReader(arquivo, StandardCharsets.ISO_8859_1))) {
@@ -21,7 +21,8 @@ public class DiscipuloCSV {
 					String linha = scanner.nextLine();
 					String[] dados = linha.split(";");
 					try {
-						int idAtual = Integer.parseInt(dados[0]);
+						String semPrefixo = dados[0].replaceFirst("^10", "");
+						int idAtual = Integer.parseInt(semPrefixo);
 						if (idAtual > maiorId) {
 							maiorId = idAtual;
 						}
@@ -39,7 +40,7 @@ public class DiscipuloCSV {
 
 	// Função para adicionar a classe Discipulo num arquivo CSV
 	public static void AdicionaDiscipulo(Discipulo d) {
-		int novoId = gerarId();
+		String novoId = "10" + gerarId();
 		d.setId(novoId);
 		try {
 			boolean existe = new File(caminho).exists();

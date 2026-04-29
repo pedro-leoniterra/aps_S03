@@ -1,7 +1,7 @@
 package dojo;
 
 public class Discipulo {
-	private int id = 100;
+	private String id;
 	private String nome;
 	private int idade;
 	private String nivelPoder;
@@ -42,7 +42,7 @@ public class Discipulo {
 	}
 
 	// Getters para a tabela do Administrador
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
